@@ -1,2 +1,2 @@
-# usaas-admin
-Saas-admin后台框架
+# usaas
+UU开源Saas框架

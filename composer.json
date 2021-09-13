@@ -1,0 +1,40 @@
+{
+  "name": "uu/admin",
+  "description": "usaas",
+  "license": "MIT",
+  "keywords": [
+    "php",
+    "hyperf",
+    "helper"
+  ],
+  "support": {
+  },
+  "require": {
+    "php": ">=8.0",
+    "uu/contract": "^1.0",
+    "hyperf/di": "^2.0.0",
+    "96qbhy/hyperf-auth": "^2.3",
+    "hyperf-plus/helper": "^2.1",
+    "hyperf-plus/validate": "^2.1",
+    "hyperf/rate-limit": "^2.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "UU\\Admin\\": "src/"
+    },
+    "files": [
+      "src/Kernel/Functions.php"
+    ]
+  },
+  "extra": {
+    "hyperf": {
+      "config": "UU\\Admin\\ConfigProvider"
+    }
+  },
+  "bin": [
+  ],
+  "scripts": {
+    "cs-fix": "php-cs-fixer fix $1",
+    "test": "phpunit --colors=always"
+  }
+}
