@@ -12,12 +12,11 @@ declare(strict_types=1);
 
 namespace UU\Admin\Commands;
 
-use App\Model\System\SystemPermission;
-use App\Model\System\SystemUser;
 use Hyperf\Command\Annotation\Command;
 use Hyperf\Command\Command as HyperfCommand;
 use Hyperf\Utils\Collection;
 use Hyperf\DbConnection\Db;
+use UU\Admin\Model\SystemUser;
 
 /**
  * Class InstallCommand.
@@ -25,7 +24,7 @@ use Hyperf\DbConnection\Db;
  */
 class InstallCommand extends HyperfCommand
 {
-    protected $name = 'usaas-install';
+    protected $name = 'usaas:install';
 
     public function __construct(string $name = null)
     {
@@ -54,10 +53,19 @@ class InstallCommand extends HyperfCommand
                 $this->error($exception->getMessage());
             }
         }
+
+        #设置默认后台密码
+        $password = $this->ask('设置admin用户密码', '123456');
+        $userInfo = SystemUser::query()->where('username', 'admin')->first();
+        $userInfo->fill(['password' => $password])->save();
 //        if ($this->confirm('是否开启SaaS模式？', false)) {
 //            $this->info('暂未支持');
 //        }
-        $this->info('恭喜您，安装成功！');
+        #生成JWT秘钥
+        $jwt = $this->ask('请设置32位JWT秘钥，按回车自动生成。', str_random(32));
+        $this->gen('JWT_ADMIN_SECRET', $jwt);
+
+        $this->info('恭喜您，安装成功！用户名：admin 密码：' . $password);
     }
 
     protected function configure()
@@ -72,5 +80,15 @@ class InstallCommand extends HyperfCommand
                 $migration = str_replace(BASE_PATH, ' .', $migration);
                 return ['<info>' . ($key + 1) . '</info>', $migration, ''];
             });
+    }
+
+    public function gen($key, string $value = null)
+    {
+        if (empty(env($key))) {
+            file_put_contents(BASE_PATH . '/.env', sprintf(PHP_EOL . '%s=%s', $key, $value ?? str_random(32)), FILE_APPEND);
+            $this->info($key . ' 已生成!');
+        } else {
+            $this->info($key . ' 已存在!');
+        }
     }
 }
