@@ -11,21 +11,20 @@
 | 前端  | Vue3+、Vite、Ant Design | |
 
 ## 安装命令
-#### <font color=red>首先确保安装好了hyperf框架，并且数据库连接设置正确。</font>
-
-
+### 首先确保安装好了hyperf框架，并且数据库连接设置正确。
 
 1、在已有hyperf项目上，安装admin插件或全新安装hyperf框架
+- <font color=red>已有Hyperf项目安装可以忽略这一步。</font>
 ```bash
 composer create-project hyperf/hyperf-skeleton
 ```
-配置好数据库（必须），然后执行下面安装命令
 
-2、安装命令
+<font color=red>配置好数据库（必须）</font>，然后执行下面安装命令
+2、安装admin插件
 ```bash
 composer require uu/admin
 ```
-
+3、执行安装命令
 ```php
 php bin/hyperf.php usaas:install
 ```
