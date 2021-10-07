@@ -31,6 +31,7 @@ class CreateSystemRoles extends Migration
             $table->integer('create_user_id')->default(0)->comment('创建人ID');
             // $table->tinyInteger('data_range')->default(0)->comment('1 全部数据 2 自定义数据 3 仅本人数据 4 部门数据 5 部门及以下数据');
             $table->string('remark', 255)->default('')->comment('角色备注');
+            $table->integer('tenant_id')->default(0)->comment('租户ID');
             $table->timestamps();
         });
     }

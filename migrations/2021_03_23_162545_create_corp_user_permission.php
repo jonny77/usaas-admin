@@ -25,7 +25,7 @@ class CreateCorpUserPermission extends Migration
             $table->integer('user_id')->default(0)->comment('员工ID');
             $table->integer('permission_id')->default(0)->comment('权限ID');
             $table->integer('create_user_id')->default(0)->comment('权限创建人ID');
-            $table->integer('corp_id')->default(0)->comment('企业ID');
+            $table->integer('tenant_id')->default(0)->comment('租户ID');
             $table->timestamps();
         });
     }

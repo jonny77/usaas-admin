@@ -25,7 +25,7 @@ class ConfigProvider
                     'description' => 'uu-admin-config',
                     'source' => __DIR__ . '/../publish/admin.php',
                     'destination' => BASE_PATH . '/config/autoload/admin.php',
-                ],[
+                ], [
                     'id' => 'auth',
                     'description' => 'uu-auth-config',
                     'source' => __DIR__ . '/../publish/auth.php',
@@ -96,6 +96,12 @@ class ConfigProvider
                     'description' => '用户表',
                     'source' => __DIR__ . '/../migrations/2021_10_06_143241_create_system_users_table.php',
                     'destination' => BASE_PATH . '/migrations/2021_10_06_143241_create_system_users_table.php',
+                ],
+                [
+                    'id' => 'migrate_tenants',
+                    'description' => '租户表',
+                    'source' => __DIR__ . '/../migrations/2021_10_07_164450_create_tenants_table.php',
+                    'destination' => BASE_PATH . '/migrations/2021_10_07_164450_create_tenants_table.php',
                 ],
             ],
         ];

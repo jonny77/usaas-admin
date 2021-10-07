@@ -26,6 +26,7 @@ class CreateSystemConfig extends Migration
             $table->string('field_type', 255)->default("")->comment('字段类型');
             $table->string('options', 1000)->default("")->comment('扩展参数');
             $table->integer('status')->default(0)->comment('0无效 1 有效');
+            $table->integer('tenant_id')->default(0)->comment('租户ID');
             $table->timestamps();
         });
     }

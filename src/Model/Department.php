@@ -55,7 +55,7 @@ class Department extends Model
      * @var array
      */
     protected $casts = ['department_id' => 'integer', 'component_id' => 'integer', 'status' => 'integer', 'order' => 'integer', 'parent_id' => 'integer', 'employee_num' => 'integer', 'created_at' => 'datetime', 'updated_at' => 'datetime', 'corp_id' => 'integer', 'supervisor_id' => 'integer'];
-
+    
     /**
      * 设置上层节点，需要在这里自动完成full_path 节点权限的自动分配.
      * @param $value

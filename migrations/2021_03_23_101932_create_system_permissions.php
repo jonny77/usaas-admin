@@ -38,6 +38,7 @@ class CreateSystemPermissions extends Migration
             $table->integer('parent_id')->default(0)->comment('父级ID');
             $table->integer('create_user_id')->default(0)->comment('创建人ID');
             $table->string('remark', 255)->default('')->comment('权限备注');
+            $table->integer('tenant_id')->default(0)->comment('租户ID');
             $table->timestamps();
         });
     }

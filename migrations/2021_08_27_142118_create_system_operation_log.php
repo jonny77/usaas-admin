@@ -21,6 +21,7 @@ class CreateSystemOperationLog extends Migration
             $table->json('result')->comment('响应数据');
             $table->json('header')->comment('请求头信息');
             $table->string('runtime', 255)->default('')->comment('运行时间');
+            $table->integer('tenant_id')->default(0)->comment('租户ID');
             $table->timestamps();
         });
     }

@@ -23,6 +23,7 @@ class CreateRateLimiterTable extends Migration
             $table->integer('order')->default(0)->comment('排序');
             $table->integer('status')->default(0)->comment('0无效 1 有效');
             $table->string('remark', 500)->default("")->comment('扩展参数');
+            $table->integer('tenant_id')->default(0)->comment('租户ID');
             $table->timestamps();
         });
     }

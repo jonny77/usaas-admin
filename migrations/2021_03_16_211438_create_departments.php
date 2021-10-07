@@ -30,6 +30,7 @@ class CreateDepartments extends Migration
             $table->tinyInteger('status')->default(0)->comment('状态 0 禁用 1 启用');
             $table->integer('create_user_id')->default(0)->comment('创建人ID');
             $table->integer('employee_num')->default(0)->comment('部门人数');
+            $table->integer('tenant_id')->default(0)->comment('租户ID');
             $table->timestamps();
         });
     }

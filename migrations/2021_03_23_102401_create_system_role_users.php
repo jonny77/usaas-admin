@@ -26,7 +26,7 @@ class CreateSystemRoleUsers extends Migration
             $table->unsignedInteger('id', true);
             $table->integer('role_id')->default(0)->comment('角色ID');
             $table->integer('user_id')->default(0)->comment('员工ID');
-            $table->integer('corp_id')->default(0)->comment('企业ID');
+            $table->integer('tenant_id')->default(0)->comment('租户ID');
             $table->timestamps();
         });
     }

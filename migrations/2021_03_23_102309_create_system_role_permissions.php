@@ -26,6 +26,7 @@ class CreateSystemRolePermissions extends Migration
             $table->unsignedInteger('role_permission_id', true);
             $table->integer('role_id')->default(0)->comment('角色ID');
             $table->integer('permission_id')->default(0)->comment('权限ID');
+            $table->integer('tenant_id')->default(0)->comment('租户ID');
             $table->timestamps();
         });
     }

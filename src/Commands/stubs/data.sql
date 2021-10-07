@@ -24,13 +24,13 @@ INSERT INTO `system_role` (`role_id`, `role_name`, `slug`, `parent_id`, `create_
 INSERT INTO `system_role` (`role_id`, `role_name`, `slug`, `parent_id`, `create_user_id`, `remark`, `created_at`, `updated_at`, `status`) VALUES (12, '测试2', 'test2', 0, 0, 'dsf', '2021-08-31 10:53:57', '2021-09-24 15:19:03', 0);
 
 -- 用户角色
-INSERT INTO `system_role_users` (`id`, `role_id`, `user_id`, `corp_id`, `created_at`, `updated_at`) VALUES (65, 12, 12, 0, NULL, NULL);
-INSERT INTO `system_role_users` (`id`, `role_id`, `user_id`, `corp_id`, `created_at`, `updated_at`) VALUES (66, 9, 12, 0, NULL, NULL);
-INSERT INTO `system_role_users` (`id`, `role_id`, `user_id`, `corp_id`, `created_at`, `updated_at`) VALUES (67, 9, 1, 0, NULL, NULL);
-INSERT INTO `system_role_users` (`id`, `role_id`, `user_id`, `corp_id`, `created_at`, `updated_at`) VALUES (68, 9, 16, 0, NULL, NULL);
-INSERT INTO `system_role_users` (`id`, `role_id`, `user_id`, `corp_id`, `created_at`, `updated_at`) VALUES (69, 18, 13, 0, NULL, NULL);
-INSERT INTO `system_role_users` (`id`, `role_id`, `user_id`, `corp_id`, `created_at`, `updated_at`) VALUES (70, 11, 11, 0, NULL, NULL);
-INSERT INTO `system_role_users` (`id`, `role_id`, `user_id`, `corp_id`, `created_at`, `updated_at`) VALUES (71, 10, 11, 0, NULL, NULL);
+INSERT INTO `system_role_users` (`id`, `role_id`, `user_id`, `tenant_id`, `created_at`, `updated_at`) VALUES (65, 12, 12, 0, NULL, NULL);
+INSERT INTO `system_role_users` (`id`, `role_id`, `user_id`, `tenant_id`, `created_at`, `updated_at`) VALUES (66, 9, 12, 0, NULL, NULL);
+INSERT INTO `system_role_users` (`id`, `role_id`, `user_id`, `tenant_id`, `created_at`, `updated_at`) VALUES (67, 9, 1, 0, NULL, NULL);
+INSERT INTO `system_role_users` (`id`, `role_id`, `user_id`, `tenant_id`, `created_at`, `updated_at`) VALUES (68, 9, 16, 0, NULL, NULL);
+INSERT INTO `system_role_users` (`id`, `role_id`, `user_id`, `tenant_id`, `created_at`, `updated_at`) VALUES (69, 18, 13, 0, NULL, NULL);
+INSERT INTO `system_role_users` (`id`, `role_id`, `user_id`, `tenant_id`, `created_at`, `updated_at`) VALUES (70, 11, 11, 0, NULL, NULL);
+INSERT INTO `system_role_users` (`id`, `role_id`, `user_id`, `tenant_id`, `created_at`, `updated_at`) VALUES (71, 10, 11, 0, NULL, NULL);
 
 -- 角色权限
 INSERT INTO `system_role_permissions` (`role_permission_id`, `role_id`, `permission_id`, `created_at`, `updated_at`) VALUES (156, 10, 39, NULL, NULL);

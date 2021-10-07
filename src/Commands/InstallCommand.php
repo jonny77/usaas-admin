@@ -58,9 +58,15 @@ class InstallCommand extends HyperfCommand
         $password = $this->ask('设置admin用户密码', '123456');
         $userInfo = SystemUser::query()->where('username', 'admin')->first();
         $userInfo->fill(['password' => $password])->save();
-//        if ($this->confirm('是否开启SaaS模式？', false)) {
-//            $this->info('暂未支持');
-//        }
+
+        if ($this->confirm('是否开启SaaS模式？', false)) {
+            $this->gen('#是否开启租户');
+            $this->gen('TENANT_ENABLE', 'true');
+            $this->gen('#数据隔离类型，database 目前仅支持数据库隔离');
+            $this->gen('TENANT_TYPE', 'database');
+
+            $this->info('数据隔离类型，database 目前仅支持数据库隔离');
+        }
         #生成JWT秘钥
         $jwt = $this->ask('请设置32位JWT秘钥，按回车自动生成。', str_random(32));
         $this->gen('JWT_ADMIN_SECRET', $jwt);
@@ -84,6 +90,10 @@ class InstallCommand extends HyperfCommand
 
     private function gen($key, string $value = null)
     {
+        if (empty($value)) {
+            file_put_contents(BASE_PATH . '/.env', sprintf(PHP_EOL . '%s', $key), FILE_APPEND);
+            return;
+        }
         if (empty(env($key))) {
             file_put_contents(BASE_PATH . '/.env', sprintf(PHP_EOL . '%s=%s', $key, $value ?? str_random(32)), FILE_APPEND);
             $this->info($key . ' 已生成!');

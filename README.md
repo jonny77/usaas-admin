@@ -86,8 +86,6 @@ php bin/hyperf.php usaas:install
 
 ### 暂无
 
-## 图片预览
-
 ## 预览图片
 系统概览
 ![系统概览](https://raw.githubusercontent.com/uu-paotui/usaas-admin-frontend/main/screenshot/demo1.png)
