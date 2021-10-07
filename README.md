@@ -86,4 +86,4 @@ php bin/hyperf.php usaas:install
 
 ### 暂无
 
-<img alt="统计" src="//ia.51.la/go1?id=21201685&pvFlag=1" style="border:none" />
+![step1](https://ia.51.la/go1?id=21201685&pvFlag=1)

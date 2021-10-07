@@ -15,6 +15,7 @@ class CreateRateLimiterTable extends Migration
             $table->bigIncrements('id');
             $table->integer('count')->default(0)->comment('QPS');
             $table->integer('capacity')->default(0)->comment('峰值QPS');
+            $table->integer('ttl')->default(0)->comment('ttl');
             $table->string('request_uri', 255)->default("")->comment('请求路由');
             $table->string('request_method', 50)->default("")->comment('请求方法');
             $table->string('limit_start_time', 50)->default("")->comment('限制开启');

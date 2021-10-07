@@ -28,6 +28,7 @@ class CreateModelsTable extends Migration
             $table->json('order_field')->comment('排序');
             $table->string('engine_type', 25)->default("MyISAM")->comment('数据库引擎');
             $table->string('route', 255)->default("")->comment('路由');
+            $table->tinyInteger('status')->default(0)->comment('状态 0 禁用 1 启用');
 
 //            $table->tinyInteger('is_generate')->default(0)->comment('数据表是否创建');
 

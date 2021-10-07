@@ -73,7 +73,7 @@ class InstallCommand extends HyperfCommand
         $this->setDescription('install usaas-admin command.');
     }
 
-    protected function getData($result)
+    private function getData($result)
     {
         return Collection::make($result)
             ->map(function ($migration, $key) {
@@ -82,7 +82,7 @@ class InstallCommand extends HyperfCommand
             });
     }
 
-    public function gen($key, string $value = null)
+    private function gen($key, string $value = null)
     {
         if (empty(env($key))) {
             file_put_contents(BASE_PATH . '/.env', sprintf(PHP_EOL . '%s=%s', $key, $value ?? str_random(32)), FILE_APPEND);
