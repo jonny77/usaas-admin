@@ -19,8 +19,7 @@ use Hyperf\ModelCache\CacheableInterface;
 abstract class Model extends BaseModel implements CacheableInterface
 {
     use Cacheable;
+    use DataIsolation;
 
     protected $hidden = ['create_user_id'];
-
-    use DataIsolation;
 }

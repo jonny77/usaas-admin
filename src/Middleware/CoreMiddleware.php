@@ -9,10 +9,8 @@ declare(strict_types=1);
  * @contact maozihao@uupaotui.com
  * @license  https://github.com/uu-paotui/usaas/blob/main/LICENSE
  */
-
 namespace UU\Admin\Middleware;
 
-use App\Services\SiteService;
 use Hyperf\Contract\ConfigInterface;
 use Hyperf\DbConnection\Db;
 use Hyperf\HttpServer\Router\Dispatched;
@@ -53,9 +51,9 @@ class CoreMiddleware extends \Hyperf\HttpServer\CoreMiddleware
             Context::set('current_tenant_id', $tenant->tenant_id ?? 0);
         }
 
-        if (!empty($module)) {
+        if (! empty($module)) {
             [$action, $module_id] = $module;
-            $module[2] = (bool)$request->getHeaderLine('layout');
+            $module[2] = (bool) $request->getHeaderLine('layout');
             Context::set('module', $module);
             $route = '/v1/system/modules/route/' . $action;
         }

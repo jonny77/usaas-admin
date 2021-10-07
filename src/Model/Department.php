@@ -47,15 +47,15 @@ class Department extends Model
      *
      * @var array
      */
-    protected $fillable = ['department_id', 'component_id', 'remark', 'position', 'status', 'name', 'full_path', 'order', 'parent_id', 'employee_num', 'created_at', 'updated_at', 'corp_id', 'supervisor_id', 'children_count'];
+    protected $fillable = ['department_id', 'name', 'full_path', 'remark', 'order', 'parent_id', 'status', 'create_user_id', 'employee_num', 'tenant_id', 'created_at', 'updated_at'];
 
     /**
      * The attributes that should be cast to native types.
      *
      * @var array
      */
-    protected $casts = ['department_id' => 'integer', 'component_id' => 'integer', 'status' => 'integer', 'order' => 'integer', 'parent_id' => 'integer', 'employee_num' => 'integer', 'created_at' => 'datetime', 'updated_at' => 'datetime', 'corp_id' => 'integer', 'supervisor_id' => 'integer'];
-    
+    protected $casts = ['department_id' => 'integer', 'order' => 'integer', 'parent_id' => 'integer', 'status' => 'integer', 'create_user_id' => 'integer', 'employee_num' => 'integer', 'tenant_id' => 'integer', 'created_at' => 'datetime', 'updated_at' => 'datetime'];
+
     /**
      * 设置上层节点，需要在这里自动完成full_path 节点权限的自动分配.
      * @param $value

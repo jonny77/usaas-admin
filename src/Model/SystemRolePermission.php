@@ -12,13 +12,12 @@ declare(strict_types=1);
 namespace UU\Admin\Model;
 
 /**
- * @property int $role_permission_id 自增ID
- * @property int $permission_id 权限ID
+ * @property int $role_permission_id
  * @property int $role_id 角色ID
- * @property \Carbon\Carbon $created_at 创建时间
- * @property int $create_user_id 创建人
- * @property \Carbon\Carbon $updated_at 修改时间
- * @property string $updated_by 修改人
+ * @property int $permission_id 权限ID
+ * @property int $tenant_id 租户ID
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
  */
 class SystemRolePermission extends Model
 {
@@ -36,12 +35,12 @@ class SystemRolePermission extends Model
      *
      * @var array
      */
-    protected $fillable = ['role_permission_id', 'permission_id', 'role_id', 'created_at', 'create_user_id', 'updated_at', 'updated_by'];
+    protected $fillable = ['role_permission_id', 'role_id', 'permission_id', 'tenant_id', 'created_at', 'updated_at'];
 
     /**
      * The attributes that should be cast to native types.
      *
      * @var array
      */
-    protected $casts = ['role_permission_id' => 'integer', 'permission_id' => 'integer', 'role_id' => 'integer', 'created_at' => 'datetime', 'create_user_id' => 'integer', 'updated_at' => 'datetime'];
+    protected $casts = ['role_permission_id' => 'integer', 'role_id' => 'integer', 'permission_id' => 'integer', 'tenant_id' => 'integer', 'created_at' => 'datetime', 'updated_at' => 'datetime'];
 }

@@ -1,9 +1,15 @@
 <?php
 
 declare(strict_types=1);
-
+/**
+ * This file is part of usaas.
+ *
+ * @link     https://www.uupt.com
+ * @document https://www.uupt.com
+ * @contact maozihao@uupaotui.com
+ * @license  https://github.com/uu-paotui/usaas/blob/main/LICENSE
+ */
 namespace UU\Admin;
-
 
 class ConfigProvider
 {

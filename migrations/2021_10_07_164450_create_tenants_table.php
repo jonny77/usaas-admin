@@ -1,8 +1,17 @@
 <?php
 
-use Hyperf\Database\Schema\Schema;
-use Hyperf\Database\Schema\Blueprint;
+declare(strict_types=1);
+/**
+ * This file is part of usaas.
+ *
+ * @link     https://www.uupt.com
+ * @document https://www.uupt.com
+ * @contact maozihao@uupaotui.com
+ * @license  https://github.com/uu-paotui/usaas/blob/main/LICENSE
+ */
 use Hyperf\Database\Migrations\Migration;
+use Hyperf\Database\Schema\Blueprint;
+use Hyperf\Database\Schema\Schema;
 
 class CreateTenantsTable extends Migration
 {

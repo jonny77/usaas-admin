@@ -9,14 +9,10 @@ declare(strict_types=1);
  * @contact maozihao@uupaotui.com
  * @license  https://github.com/uu-paotui/usaas/blob/main/LICENSE
  */
-
 namespace UU\Admin\Service;
 
 use App\Model\SystemTenant;
 use Hyperf\Cache\Annotation\Cacheable;
-use Hyperf\Database\Model\Builder;
-use UU\Admin\Model\SystemRateLimiter;
-use UU\Contract\Exception\ApiException;
 use UU\Contract\Exception\BusinessException;
 
 class TenantService

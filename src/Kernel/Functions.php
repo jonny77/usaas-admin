@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /**
  * This file is part of usaas.
  *
@@ -10,7 +9,6 @@ declare(strict_types=1);
  * @contact maozihao@uupaotui.com
  * @license  https://github.com/uu-paotui/usaas/blob/main/LICENSE
  */
-
 use Hyperf\AsyncQueue\Driver\DriverFactory;
 use Hyperf\AsyncQueue\JobInterface;
 use Hyperf\Contract\IdGeneratorInterface;
@@ -24,7 +22,7 @@ use Psr\SimpleCache\CacheInterface;
 use Qbhy\HyperfAuth\AuthManager;
 use UU\Admin\Kernel\Utils\QueryPage;
 
-if (!function_exists('di')) {
+if (! function_exists('di')) {
     /**
      * Finds an entry of the container by its identifier and returns it.
      *
@@ -43,7 +41,7 @@ if (!function_exists('di')) {
     }
 }
 
-if (!function_exists('format_throwable')) {
+if (! function_exists('format_throwable')) {
     /**
      * Format a throwable to string.
      */
@@ -53,7 +51,7 @@ if (!function_exists('format_throwable')) {
     }
 }
 
-if (!function_exists('queue_push')) {
+if (! function_exists('queue_push')) {
     /**
      * Push a job to async queue.
      */
@@ -64,26 +62,26 @@ if (!function_exists('queue_push')) {
     }
 }
 
-if (!function_exists('url_add_query')) {
+if (! function_exists('url_add_query')) {
     function url_add_query($url, $key, $value)
     {
         $url = preg_replace('/(.*)(?|&)' . $key . '=[^&]+?(&)(.*)/i', '$1$2$4', $url . '&');
         $url = substr($url, 0, -1);
-        if (!str_contains($url, '?')) {
+        if (! str_contains($url, '?')) {
             return $url . '?' . $key . '=' . $value;
         }
         return $url . '&' . $key . '=' . $value;
     }
 }
 
-if (!function_exists('cache')) {
+if (! function_exists('cache')) {
     function cache(): CacheInterface
     {
         return ApplicationContext::getContainer()->get(CacheInterface::class);
     }
 }
 
-if (!function_exists('cache_has_set')) {
+if (! function_exists('cache_has_set')) {
     function cache_has_set(string $key, $callback, $tll = 3600)
     {
         $data = cache()->get($key);
@@ -101,7 +99,7 @@ if (!function_exists('cache_has_set')) {
     }
 }
 
-if (!function_exists('array_filter_null')) {
+if (! function_exists('array_filter_null')) {
     /**
      * 过滤空数据.
      *
@@ -120,7 +118,7 @@ if (!function_exists('array_filter_null')) {
     }
 }
 
-if (!function_exists('make_openid')) {
+if (! function_exists('make_openid')) {
     /*
  * 分布式全局唯一ID 生成器
  *  Twitter 提出的一个分布式全局唯一算法
@@ -139,7 +137,7 @@ if (!function_exists('make_openid')) {
     }
 }
 
-if (!function_exists('is_valid_url')) {
+if (! function_exists('is_valid_url')) {
     function is_valid_url($url)
     {
         $check = 0;
@@ -150,7 +148,7 @@ if (!function_exists('is_valid_url')) {
     }
 }
 
-if (!function_exists('str_random')) {
+if (! function_exists('str_random')) {
     function str_random($num = 6): string
     {
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -163,7 +161,7 @@ if (!function_exists('str_random')) {
     }
 }
 
-if (!function_exists('get_user_info')) {
+if (! function_exists('get_user_info')) {
     /**
      * 获取当前应用调用方身份。通过账户密码获取的.
      */
@@ -176,7 +174,7 @@ if (!function_exists('get_user_info')) {
     }
 }
 
-if (!function_exists('get_admin_info')) {
+if (! function_exists('get_admin_info')) {
     /**
      * 获取当前应用调用方身份。通过账户密码获取的.
      */
@@ -190,7 +188,7 @@ if (!function_exists('get_admin_info')) {
     }
 }
 
-if (!function_exists('get_admin_id')) {
+if (! function_exists('get_admin_id')) {
     /**
      * 获取当前应用调用方身份。通过账户密码获取的.
      */
@@ -209,7 +207,7 @@ if (!function_exists('get_admin_id')) {
     }
 }
 
-if (!function_exists('get_user_id')) {
+if (! function_exists('get_user_id')) {
     /**
      * 获取当前应用调用方身份。通过账户密码获取的.
      */
@@ -222,7 +220,7 @@ if (!function_exists('get_user_id')) {
     }
 }
 
-if (!function_exists('is_super_administrator')) {
+if (! function_exists('is_super_administrator')) {
     /**
      * 获取当前应用调用方身份。通过账户密码获取的.
      */
@@ -237,13 +235,13 @@ if (!function_exists('is_super_administrator')) {
  * 分布式全局唯一ID 生成器
  *  Twitter 提出的一个分布式全局唯一算法
  */
-if (!function_exists('get_guid')) {
+if (! function_exists('get_guid')) {
     function get_guid($session = true)
     {
         $container = ApplicationContext::getContainer();
         $generator = $container->get(IdGeneratorInterface::class);
         $gid = md5('cookie' . $generator->generate());
-        if (!$session) {
+        if (! $session) {
             return $gid;
         }
         $charId = strtoupper($gid);
@@ -256,7 +254,7 @@ if (!function_exists('get_guid')) {
     }
 }
 
-if (!function_exists('page')) {
+if (! function_exists('page')) {
     /**
      * 分页查询助手.
      *
@@ -272,14 +270,14 @@ if (!function_exists('page')) {
 /*
  * 派发事件
  */
-if (!function_exists('event_dispatch')) {
+if (! function_exists('event_dispatch')) {
     function event_dispatch(object $object)
     {
         ApplicationContext::getContainer()->get(EventDispatcherInterface::class)->dispatch($object);
     }
 }
 
-if (!function_exists('get_rate_limit')) {
+if (! function_exists('get_rate_limit')) {
     /**
      * 获取当前应用调用方身份。通过账户密码获取的.
      * @return int
@@ -294,8 +292,7 @@ if (!function_exists('get_rate_limit')) {
     }
 }
 
-if (!function_exists('modify_env')) {
-
+if (! function_exists('modify_env')) {
     function modify_env(array $data)
     {
         $env_path = BASE_PATH . '/.env';
@@ -314,8 +311,7 @@ if (!function_exists('modify_env')) {
     }
 }
 
-
-if (!function_exists('get_tenant_id')) {
+if (! function_exists('get_tenant_id')) {
     function get_tenant_id(): int
     {
         #存到上下文
@@ -323,10 +319,9 @@ if (!function_exists('get_tenant_id')) {
     }
 }
 
-if (!function_exists('is_tenant_enable')) {
+if (! function_exists('is_tenant_enable')) {
     function is_tenant_enable(): bool
     {
         return env('TENANT_ENABLE') == true;
     }
 }
-

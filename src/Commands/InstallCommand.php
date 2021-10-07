@@ -2,20 +2,19 @@
 
 declare(strict_types=1);
 /**
- * This file is UUOA of Hyperf.plus
+ * This file is part of usaas.
  *
- * @link     https://www.hyperf.plus
- * @document https://doc.hyperf.plus
- * @contact  4213509@qq.com
- * @license  https://github.com/hyperf-plus/admin/blob/master/LICENSE
+ * @link     https://www.uupt.com
+ * @document https://www.uupt.com
+ * @contact maozihao@uupaotui.com
+ * @license  https://github.com/uu-paotui/usaas/blob/main/LICENSE
  */
-
 namespace UU\Admin\Commands;
 
 use Hyperf\Command\Annotation\Command;
 use Hyperf\Command\Command as HyperfCommand;
-use Hyperf\Utils\Collection;
 use Hyperf\DbConnection\Db;
+use Hyperf\Utils\Collection;
 use UU\Admin\Model\SystemUser;
 
 /**

@@ -40,14 +40,14 @@ class SystemConfig extends Model
      *
      * @var array
      */
-    protected $fillable = ['id', 'name', 'field', 'field_type', 'icon', 'key', 'options', 'parent_id', 'required', 'type', 'order', 'value', 'component', 'status', 'created_at', 'updated_at'];
+    protected $fillable = ['id', 'name', 'field', 'key', 'parent_id', 'order', 'value', 'type', 'required', 'component', 'icon', 'field_type', 'options', 'status', 'tenant_id', 'created_at', 'updated_at'];
 
     /**
      * The attributes that should be cast to native types.
      *
      * @var array
      */
-    protected $casts = ['id' => 'integer', 'type' => 'integer', 'parent_id' => 'integer', 'order' => 'integer', 'status' => 'integer', 'required' => 'integer', 'created_at' => 'datetime', 'updated_at' => 'datetime'];
+    protected $casts = ['id' => 'integer', 'parent_id' => 'integer', 'order' => 'integer', 'type' => 'integer', 'required' => 'integer', 'status' => 'integer', 'tenant_id' => 'integer', 'created_at' => 'datetime', 'updated_at' => 'datetime'];
 
     /**
      * @return HasMany

@@ -21,6 +21,7 @@ namespace UU\Admin\Model;
  * @property string $result 响应数据
  * @property string $header 请求头信息
  * @property string $runtime 运行时间
+ * @property int $tenant_id 租户ID
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  */
@@ -38,8 +39,13 @@ class SystemOperationLog extends Model
      *
      * @var array
      */
-    protected $fillable = ['id', 'path', 'user_id', 'method', 'ip', 'request', 'result', 'header', 'runtime', 'created_at', 'updated_at'];
+    protected $fillable = ['id', 'path', 'user_id', 'method', 'ip', 'request', 'result', 'header', 'runtime', 'tenant_id', 'created_at', 'updated_at'];
 
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
     /**
      * The attributes that should be cast to native types.
      *

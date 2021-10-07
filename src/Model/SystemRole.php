@@ -16,11 +16,12 @@ namespace UU\Admin\Model;
  * @property string $role_name 角色名
  * @property string $slug 角色的标识
  * @property int $parent_id 父级ID
+ * @property int $status 状态 1有效 0无效
  * @property int $create_user_id 创建人ID
  * @property string $remark 角色备注
+ * @property int $tenant_id 租户ID
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
- * @property int $status 状态 1有效 0无效
  */
 class SystemRole extends Model
 {
@@ -40,14 +41,14 @@ class SystemRole extends Model
      *
      * @var array
      */
-    protected $fillable = ['role_id', 'role_name', 'slug', 'parent_id', 'create_user_id', 'remark', 'created_at', 'updated_at', 'status'];
+    protected $fillable = ['role_id', 'role_name', 'slug', 'parent_id', 'status', 'create_user_id', 'remark', 'tenant_id', 'created_at', 'updated_at'];
 
     /**
      * The attributes that should be cast to native types.
      *
      * @var array
      */
-    protected $casts = ['role_id' => 'integer', 'parent_id' => 'integer', 'create_user_id' => 'integer', 'created_at' => 'datetime', 'updated_at' => 'datetime', 'status' => 'integer'];
+    protected $casts = ['role_id' => 'integer', 'parent_id' => 'integer', 'status' => 'integer', 'create_user_id' => 'integer', 'tenant_id' => 'integer', 'created_at' => 'datetime', 'updated_at' => 'datetime'];
 
 //    public function Booted(Booted $event)
 //    {

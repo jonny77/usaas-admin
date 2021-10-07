@@ -16,21 +16,22 @@ use Hyperf\Utils\Context;
 use Qbhy\HyperfAuth\Authenticatable;
 
 /**
- * @property int $user_id 自增ID
+ * @property int $user_id
  * @property string $username 用户名
+ * @property string $mobile 手机号
+ * @property string $nickname 昵称
+ * @property string $email 邮箱
  * @property string $password 密码
  * @property string $avatar 头像
  * @property string $description 描述
- * @property string $email 邮箱
- * @property string $mobile 手机号
- * @property string $nickname 昵称
  * @property int $sex 性别：1男;2女 0未知
- * @property int $status 状态(0无效;1有效)
+ * @property int $status 状态 0 禁用 1 启用
  * @property int $role_id 角色ID
  * @property int $department_id 部门ID
- * @property \Carbon\Carbon $created_at 创建时间
- * @property int $create_user_id 创建人
- * @property \Carbon\Carbon $updated_at 修改时间
+ * @property int $create_user_id 创建人ID
+ * @property int $tenant_id 租户ID
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
  */
 class SystemUser extends Model implements Authenticatable
 {
@@ -50,14 +51,14 @@ class SystemUser extends Model implements Authenticatable
      *
      * @var array
      */
-    protected $fillable = ['user_id', 'username', 'password', 'avatar', 'description', 'email', 'mobile', 'nickname', 'sex', 'status', 'role_id', 'department_id', 'created_at', 'create_user_id', 'updated_at'];
+    protected $fillable = ['user_id', 'username', 'mobile', 'nickname', 'email', 'password', 'avatar', 'description', 'sex', 'status', 'role_id', 'department_id', 'create_user_id', 'tenant_id', 'created_at', 'updated_at'];
 
     /**
      * The attributes that should be cast to native types.
      *
      * @var array
      */
-    protected $casts = ['user_id' => 'integer', 'sex' => 'integer', 'status' => 'integer', 'role_id' => 'integer', 'department_id' => 'integer', 'created_at' => 'datetime', 'create_user_id' => 'integer', 'updated_at' => 'datetime'];
+    protected $casts = ['user_id' => 'integer', 'sex' => 'integer', 'status' => 'integer', 'role_id' => 'integer', 'department_id' => 'integer', 'create_user_id' => 'integer', 'tenant_id' => 'integer', 'created_at' => 'datetime', 'updated_at' => 'datetime'];
 
     public function getId()
     {
