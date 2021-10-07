@@ -19,6 +19,8 @@ class CreateTenantsTable extends Migration
             $table->string('mobile', 32)->default('')->comment('手机号');
             $table->tinyInteger('status')->default(0)->comment('状态 0 禁用 1 启用');
             $table->string('email', 100)->default('')->comment('邮箱');
+            $table->timestamp('start_time')->nullable()->comment('开始时间');
+            $table->timestamp('end_time')->nullable()->comment('结束时间');
             $table->timestamps();
         });
     }
