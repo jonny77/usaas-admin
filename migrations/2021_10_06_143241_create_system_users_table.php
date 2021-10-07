@@ -22,7 +22,7 @@ class CreateSystemUsersTable extends Migration
     {
         Schema::create('system_users', function (Blueprint $table) {
             $table->bigIncrements('user_id');
-            $table->string('username', 32)->unique('username')->default('')->comment('用户名');
+            $table->string('username', 32)->default('')->comment('用户名');
             $table->string('mobile', 32)->default('')->comment('手机号');
             $table->string('nickname', 32)->default('')->comment('昵称');
             $table->string('email', 100)->default('')->comment('邮箱');

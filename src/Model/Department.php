@@ -20,16 +20,15 @@ use UU\Contract\Exception\ApiException;
  * @property int $department_id 部门ID
  * @property string $name 应用名称
  * @property string $full_path 权限节点
- * @property string $remark 权限节点
+ * @property string $remark 备注
  * @property int $order 排序
- * @property Carbon $created_at
- * @property Carbon $updated_at
- * @property int $corp_id 企业租户ID
- * @property int $status 状态
- * @property string $position
- * @property $is_leaf
- * @property $key
  * @property int $parent_id 上级ID
+ * @property int $status 状态 0 禁用 1 启用
+ * @property int $create_user_id 创建人ID
+ * @property int $employee_num 部门人数
+ * @property int $tenant_id 租户ID
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
  */
 class Department extends Model
 {

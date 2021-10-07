@@ -16,19 +16,19 @@ namespace UU\Admin\Model;
  * @property string $name 模型标识
  * @property string $title 模型名称
  * @property string $primary_key 主键字段
+ * @property int $is_virtual 是否虚拟表格
  * @property int $order 排序
- * @property int $status
- * @property int $is_virtual
  * @property string $attributes 字段列表
  * @property string $list_component 列表组件
  * @property string $add_component 添加组件
  * @property string $edit_component 编辑组件
  * @property string $grid 列表定义
  * @property string $filter 过滤器
- * @property array $form form
  * @property string $order_field 排序
  * @property string $engine_type 数据库引擎
  * @property string $route 路由
+ * @property int $status 状态 0 禁用 1 启用
+ * @property int $tenant_id 租户ID
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  */

@@ -16,13 +16,19 @@ use Hyperf\Database\Model\Relations\HasMany;
 /**
  * @property int $id
  * @property string $name 配置名称
+ * @property string $field 字段名
  * @property string $key 配置键名
  * @property int $parent_id 父级
  * @property int $order 排序
  * @property string $value 值
- * @property string $type 值类型
+ * @property int $type 值类型
+ * @property int $required 0可选 1必填
  * @property string $component 组件
+ * @property string $icon 图标
+ * @property string $field_type 字段类型
+ * @property string $options 扩展参数
  * @property int $status 0无效 1 有效
+ * @property int $tenant_id 租户ID
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  */
