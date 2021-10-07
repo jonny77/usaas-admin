@@ -86,4 +86,4 @@ php bin/hyperf.php usaas:install
 
 ### 暂无
 
-<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js?id=JSk0zbzzKct6ULpM&ck=JSk0zbzzKct6ULpM"></script>
+<img alt="统计" src="//ia.51.la/go1?id=21201685&pvFlag=1" style="border:none" />
