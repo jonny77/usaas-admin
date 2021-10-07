@@ -62,10 +62,9 @@ class InstallCommand extends HyperfCommand
         if ($this->confirm('是否开启SaaS模式？', false)) {
             $this->gen('#是否开启租户');
             $this->gen('TENANT_ENABLE', 'true');
-            $this->gen('#数据隔离类型，database 目前仅支持数据库隔离');
+            $this->gen('#数据隔离类型，database 目前仅支持数据字段隔离模式');
             $this->gen('TENANT_TYPE', 'database');
-
-            $this->info('数据隔离类型，database 目前仅支持数据库隔离');
+            $this->info('SaaS开启成功，目前仅支持数据字段隔离模式');
         }
         #生成JWT秘钥
         $jwt = $this->ask('请设置32位JWT秘钥，按回车自动生成。', str_random(32));
