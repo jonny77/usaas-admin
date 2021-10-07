@@ -29,7 +29,7 @@ class TenantService
     {
         [$prefix] = explode('.', $domain) ?? [''];
         if (in_array($prefix, ['www', 'localhost', '127', '192', '10', 'admin', 'm', 'web', 'wap'])) {
-            return 0;
+            return [];
         }
         $tenant = SystemTenant::where('domain', $prefix)->first();
         if (empty($tenant)) {

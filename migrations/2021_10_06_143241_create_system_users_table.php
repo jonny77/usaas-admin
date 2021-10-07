@@ -37,6 +37,9 @@ class CreateSystemUsersTable extends Migration
             $table->integer('department_id')->default(0)->comment('部门ID');
             $table->integer('create_user_id')->default(0)->comment('创建人ID');
             $table->integer('tenant_id')->default(0)->comment('租户ID');
+            $table->unique(['username', 'tenant_id']);
+            $table->index(['username']);
+            $table->index(['email']);
             $table->timestamps();
             $table->comment('管理员表');
         });

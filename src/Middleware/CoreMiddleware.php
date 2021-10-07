@@ -50,7 +50,7 @@ class CoreMiddleware extends \Hyperf\HttpServer\CoreMiddleware
         if (is_tenant_enable()) {
             $tenant = TenantService::infoByDomain($domain);
             Context::set('current_tenant_info', $tenant);
-            Context::set('current_tenant_id', $tenant->tenant_id);
+            Context::set('current_tenant_id', $tenant->tenant_id ?? 0);
         }
 
         if (!empty($module)) {
