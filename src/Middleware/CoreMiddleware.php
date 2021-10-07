@@ -9,8 +9,10 @@ declare(strict_types=1);
  * @contact maozihao@uupaotui.com
  * @license  https://github.com/uu-paotui/usaas/blob/main/LICENSE
  */
+
 namespace UU\Admin\Middleware;
 
+use App\Services\SiteService;
 use Hyperf\Contract\ConfigInterface;
 use Hyperf\DbConnection\Db;
 use Hyperf\HttpServer\Router\Dispatched;
@@ -19,6 +21,7 @@ use Hyperf\Utils\Contracts\Arrayable;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
+use UU\Admin\Service\TenantService;
 
 class CoreMiddleware extends \Hyperf\HttpServer\CoreMiddleware
 {
@@ -40,11 +43,19 @@ class CoreMiddleware extends \Hyperf\HttpServer\CoreMiddleware
             ->withHeader('Access-Control-Allow-Headers', 'DNT,Keep-Alive,User-Agent,Cache-Control,Content-Type,Authorization,token');
         Context::set(ResponseInterface::class, $response);
 
+        $domain = $request->getUri()->getHost();
         $route = $request->getUri()->getPath();
         $module = $this->getVirtualRoute($route);
-        if (! empty($module)) {
+
+        if (is_tenant_enable()) {
+            $tenant = TenantService::infoByDomain($domain);
+            Context::set('current_tenant_info', $tenant);
+            Context::set('current_tenant_id', $tenant->tenant_id);
+        }
+
+        if (!empty($module)) {
             [$action, $module_id] = $module;
-            $module[2] = (bool) $request->getHeaderLine('layout');
+            $module[2] = (bool)$request->getHeaderLine('layout');
             Context::set('module', $module);
             $route = '/v1/system/modules/route/' . $action;
         }

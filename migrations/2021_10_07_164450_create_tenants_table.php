@@ -18,6 +18,7 @@ class CreateTenantsTable extends Migration
             $table->string('username', 32)->unique('username')->default('')->comment('用户名');
             $table->string('mobile', 32)->default('')->comment('手机号');
             $table->tinyInteger('status')->default(0)->comment('状态 0 禁用 1 启用');
+            $table->integer('data_source_id')->default(0)->comment('数据源ID 关联system_data_source表 默认0:数据库字段隔离');
             $table->string('email', 100)->default('')->comment('邮箱');
             $table->timestamp('start_time')->nullable()->comment('开始时间');
             $table->timestamp('end_time')->nullable()->comment('结束时间');

@@ -294,9 +294,9 @@ if (!function_exists('get_rate_limit')) {
     }
 }
 
-if (!function_exists('get_rate_limit')) {
+if (!function_exists('modify_env')) {
 
-    function modifyEnv(array $data)
+    function modify_env(array $data)
     {
         $env_path = BASE_PATH . '/.env';
         $contentArray = \Hyperf\Utils\Collection::make(file_get_contents($env_path));
@@ -313,3 +313,20 @@ if (!function_exists('get_rate_limit')) {
         return $content;
     }
 }
+
+
+if (!function_exists('get_tenant_id')) {
+    function get_tenant_id(): int
+    {
+        #存到上下文
+        return Context::get('current_tenant_id', 0);
+    }
+}
+
+if (!function_exists('is_tenant_enable')) {
+    function is_tenant_enable(): bool
+    {
+        return env('TENANT_ENABLE') == true;
+    }
+}
+
