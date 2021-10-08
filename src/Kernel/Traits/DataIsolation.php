@@ -11,9 +11,9 @@ declare(strict_types=1);
  */
 namespace UU\Admin\Kernel\Traits;
 
-use App\Model\DataScope;
 use Hyperf\Database\Model\Events\Booted;
 use Hyperf\Database\Model\Events\Creating;
+use UU\Admin\Model\DataScope;
 
 trait DataIsolation
 {
