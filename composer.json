@@ -16,7 +16,9 @@
     "96qbhy/hyperf-auth": "^2.3",
     "hyperf-plus/helper": "^2.1",
     "hyperf-plus/validate": "^2.1",
-    "hyperf/rate-limit": "^2.2"
+    "hyperf/rate-limit": "^2.2",
+    "hyperf/model-cache": "2.2.*",
+    "hyperf-plus/route": "^2.1"
   },
   "require-dev": {
     "friendsofphp/php-cs-fixer": "^3.0"
