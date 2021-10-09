@@ -22,7 +22,7 @@ class DataScope implements Scope
      */
     public function apply(Builder $builder, Model $model)
     {
-        if (! is_super_administrator()) {
+        if (is_tenant_enable()) {
             $builder->where($model->getTable() . '.tenant_id', get_tenant_id());
         }
     }
