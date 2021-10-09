@@ -29,6 +29,8 @@ docker run --name uu-admin \
 --privileged -u root \
 --entrypoint /bin/sh \
 registry.cn-zhangjiakou.aliyuncs.com/eic/common:hyperf-8
+
+cd /apps/admin
 ```
 
 ### 二、首先确保安装好了hyperf框架，并且数据库连接设置正确。
