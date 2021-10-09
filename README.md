@@ -11,8 +11,27 @@
 | 前端  | Vue3+、Vite、Ant Design | |
 
 ## 安装命令
-### 首先确保安装好了hyperf框架，并且数据库连接设置正确。
 
+### Docker 下开发 (已有hyperf环境的跳过此步骤)
+
+假设您的本机环境并不能达到 Hyperf 的环境要求，或对于环境配置不是那么熟悉，那么您可以通过以下方法来运行及开发 Hyperf 项目：
+
+- 启动镜像
+
+可以根据实际情况，映射到宿主机对应的目录，以下以 `/workspace/skeleton` 为例
+
+> 如果 docker 启动时开启了 selinux-enabled 选项，容器内访问宿主机资源就会受限，所以启动容器时可以增加 --privileged -u root 选项
+
+```shell
+docker run --name uu-admin \
+-v /workspace/skeleton:/apps/admin \
+-p 9501:9501 -it \
+--privileged -u root \
+--entrypoint /bin/sh \
+registry.cn-zhangjiakou.aliyuncs.com/eic/common:hyperf-8
+```
+
+### 首先确保安装好了hyperf框架，并且数据库连接设置正确。
 1、在已有hyperf项目上，安装admin插件或全新安装hyperf框架
 - <font color=red>已有Hyperf项目安装可以忽略这一步。</font>
 ```bash
